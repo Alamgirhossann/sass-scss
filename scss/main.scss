@@ -1,0 +1,168 @@
+@import '../scss/var';
+@import '../scss/verdor';
+@import '../scss/mixin';
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+}
+a, a:hover{
+    text-decoration: none;
+}
+.header{
+    width: 100vw;
+    line-height: 8rem;
+    background: $main-color;
+    & .navbar-brand{
+        color: $text-color;
+        animation: music 1s linear infinite alternate;
+        & .fas{
+            color: $text-color;
+            font-size: 4rem;
+        }
+        @keyframes music {
+            0% {transform: rotate(5deg)}
+            100% {transform: rotate(-5deg)}
+        }
+        &:hover{
+            filter: drop-shadow(0px 8px 15px rgba(240, 240, 235, 0.4));
+        }
+    }
+    & .navbar-nav{
+        padding-left: 15rem;
+        & .nav-item .nav-link{
+            color: $text-color;
+            text-transform: uppercase;
+            font-size: 1.6rem;
+            padding-right: 3rem ;
+        }
+       & .nav-item:last-child > .nav-link{
+        padding-right: 0rem ;
+       } 
+    }
+    & .nav-item:hover > .nav-link,
+    & .navbar-brand:hover,
+    & .navbar-brand:hover > .fas{
+        color: $prymary-color;
+    }
+    & .my-btn{
+        @include myBtn;
+        &:hover{
+            @include hoverEffect;
+        }
+    }
+   
+}
+
+.main-header{
+    height: 80vh;
+    width: 100%;
+    background: $main-color;
+
+    &-text{
+        height: 80vh;
+        @include contentCenter(flex-start);
+        & h3{
+            color: $text-color;
+            font-size: 7rem;
+            margin-bottom: 3rem;
+            line-height: 150%;
+            font-weight: 600;
+            & span{
+                color: $prymary-color;
+            }
+        }
+        & p{
+            color: $text-color;
+            font-size: 1.6rem;
+            margin-bottom: 5rem;
+        }
+        & .main-header-btn{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: row;
+            & a{
+                @include myBtn;
+                &:hover{
+                    @include hoverEffect
+                }
+            }
+            & #btn-2{
+                margin-left: 2rem;
+                background: rgba(255, 255, 157, 0.4);
+                &:hover{
+                    @include hoverEffect
+                }
+            }
+           
+        }
+    }
+    &-img{
+        height: 80vh;
+        @include contentCenter (flex-end);
+        animation: anime 2s linear infinite alternate;
+        & img{
+            filter: drop-shadow(1rem 1rem rgba(0, 0, 0, 0.8));
+        }
+        @keyframes anime {
+            0% {
+                transform: scale(0.9);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    html{
+        font-size: 55%;
+    }
+    .header{
+        line-height: 3rem;
+        text-align: center;
+        & .navbar-nav{
+            padding-left: 3rem;
+            & .nav-item .nav-link{
+                padding-right: 0% ;
+            }
+        }
+    }
+    .navbar .navbar-toggler{
+        border-color: rgba(255, 255, 157, 0.4);
+        & .navbar-toggler-icon{
+            background: seashell;
+            height: 1px;
+        }
+    }
+    .main-header-text{
+        & h3 {
+            font-size: 3.5rem;
+        }
+        & p {
+            font-size: 1.1rem;
+        }
+        & .main-header-btn{
+            display: block;
+            margin: 0 auto;
+        }
+    } 
+    .main-header-text .main-header-btn a{
+        display: block;
+        text-align: center;
+    }
+    .main-header-text .main-header-btn #btn-2{
+        margin-left: 0rem;
+        margin-top: 2rem;
+    }
+    .main-header-img{
+        display: none;
+    }
+    
+}
